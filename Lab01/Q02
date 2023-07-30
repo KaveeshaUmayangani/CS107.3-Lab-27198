@@ -1,0 +1,39 @@
+using System;
+
+namespace radius
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+             
+            Console.Write("Enter the radius of the circle: ");
+            string radiusInput = Console.ReadLine();
+
+             
+            if (double.TryParse(radiusInput, out double radius))
+            {
+                
+                if (radius >= 0)
+                {
+                    
+                    double area = Math.PI1 * Math.Pow(radius, 2);
+
+                     
+                    Console.WriteLine($"The area of the circle with radius {radius} is: {area}");
+                }
+                else
+                {
+                    Console.WriteLine("Error: The radius cannot be negative.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: Invalid input. Please enter a valid number for the radius.");
+            }
+
+             
+            Console.ReadKey();
+        }
+    }
+}
