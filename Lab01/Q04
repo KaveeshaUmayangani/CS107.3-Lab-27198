@@ -1,0 +1,46 @@
+using System;
+
+namespace taxandsalari
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+             
+            Console.Write("Enter the salary of the employee: ");
+            string salaryInput = Console.ReadLine();
+
+            
+            Console.Write("Enter the tax rate: ");
+            string taxRateInput = Console.ReadLine();
+
+             
+            if (double.TryParse(salaryInput, out double salary) && double.TryParse(taxRateInput, out double taxRate))
+            {
+                 
+                if (salary >= 0 && taxRate >= 0 && taxRate <= 1)
+                {
+                     
+                    double taxAmount = salary * taxRate;
+
+                 
+                    double salaryAfterTax = salary - taxAmount;
+
+                     
+                    Console.WriteLine($"Salary after tax deduction: {salaryAfterTax:C2}");
+                }
+                else
+                {
+                    Console.WriteLine("Error: Salary and tax rate must be non-negative numbers, and tax rate must be between 0 and 1.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: Invalid input. Please enter valid numbers for the salary and tax rate.");
+            }
+
+             
+            Console.ReadKey();
+        }
+    }
+}
