@@ -1,0 +1,50 @@
+using System;
+
+namespace EvenOddnumbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const int numberOfInputs = 10;
+
+            Console.WriteLine($"Enter {numberOfInputs} numbers:");
+
+            for (int i = 1; i <= numberOfInputs; i++)
+            {
+                int number;
+                while (true)
+                {
+                    Console.Write($"Input {i}: ");
+                    string input = Console.ReadLine();
+
+                    if (int.TryParse(input, out number))
+                    {
+                        break;  
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Invalid input for number {i}. Please enter a valid integer.");
+                    }
+                }
+
+                if (IsEven(number))
+                {
+                    Console.WriteLine($"{number} is an even number.");
+                }
+                else
+                {
+                    Console.WriteLine($"{number} is an odd number.");
+                }
+            }
+
+            Console.ReadLine();
+        }
+
+        static bool IsEven(int number)
+        {
+            return number % 2 == 0;
+        }
+    }
+}
+
